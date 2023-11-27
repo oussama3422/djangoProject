@@ -1,0 +1,31 @@
+<h3>Recent Activity</h3>
+        <hr>
+        <ul class="list-unstyled mb-10">
+        {%for message in room_messages%}
+         <li class="p-2 border-bottom" style="background-color: #eee;text-decoration:none;">
+            <a href="" class="d-flex justify-content-between">
+              <div class="d-flex flex-row">
+                <div class="pt-2 ml-10">
+                  <p class="fw-bold mb-0">@{{message.user}}</p>
+                  <p class="small text-muted">replied to "{{message.room}}"</p>
+                </div>
+              </div>
+              <div class="pt-2 ">
+                <p class="small text-muted mb-1">{{message.created|timesince}}</p>
+              </div>
+              {% if request.user == message.user %} 
+                    <a class="btn btn-outline-danger" href="{% url 'delete-message' message.id %}">Del</a>
+                {% endif %}
+            </a>
+          </li>
+            {% comment %} <div>
+                <small>@{{message.user}} {{message.created|timesince}}</small>
+                <small>replied to "{{message.room}}"</small>
+
+                <p>{{message}}</p>
+                {% if request.user == message.user %} 
+                    <a class="btn btn-outline-danger" href="{% url 'delete-message' message.id %}">Del</a>
+                {% endif %}
+            </div> {% endcomment %}
+        {%endfor%}
+        </ul>

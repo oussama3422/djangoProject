@@ -1,0 +1,35 @@
+<form action="" method="post">
+    {% csrf_token%}
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'create-room' %}">Create Room</a>
+
+
+<a href="{% url 'update-room' %}">Edit</a>
+
+
+
+<form action="POST">
+    {%csrf_token%}
+    <p>are you sure you want to delete "{{obj}}"?</p>
+    <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+    <input type="submit" value="Confirm" >
+</form>
+
+<div>
+    <h3>Browse Topics</h3>
+    <hr>
+</div>
+
+<div>
+    <form action="" method="POST">
+            {% csrf_token %}
+            
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter Username">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter Password">
+            <input type="submit" value="Submit">
+    </form>
+</div>
