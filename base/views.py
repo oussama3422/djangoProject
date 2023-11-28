@@ -103,7 +103,7 @@ def room(request, pk):
 
         return redirect('room', pk=room.id)
 
-    context = {'rooms': room, 'room_messages': room_messages, 'participants': participants}
+    context = {'room': room, 'room_messages': room_messages, 'participants': participants}
     return render(request, 'base/room.html', context)
 
 
