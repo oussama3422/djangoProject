@@ -95,7 +95,7 @@
             </div>
             <div class="room__conversation">
               <div class="threads scroll">
-                {% for message in room_messages%}
+                {%for message in room_messages%}
                 <div class="thread">
                   <div class="thread__top">
                     <div class="thread__author">
@@ -103,7 +103,7 @@
                         <div class="avatar avatar--small">
                           <img src="https://randomuser.me/api/portraits/men/37.jpg" />
                         </div>
-                        <span>@{{message.user.username}}</span>
+                        <span>@{{message.user}}</span>
                       </a>
                       <span class="thread__date">{{message.created|timesince}} ago</span>
                     </div>
@@ -129,7 +129,10 @@
             </div>
           </div>
           <div class="room__message">
-            <form action="#"><input name="" placeholder="Write your message here..." /></form>
+            <form action="" method="POST">
+              {% csrf_token %}
+                  <input name="" placeholder="Write your message here..." />
+              </form>
           </div>
         </div>
         <!-- Room End -->
