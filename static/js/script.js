@@ -67,3 +67,16 @@ if (photoInput)
 // Scroll to Bottom
 const conversationThread = document.querySelector(".room__box");
 if (conversationThread) conversationThread.scrollTop = conversationThread.scrollHeight;
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const minLetters = 10; // Adjust the minimum number of letters
+
+  const truncatedTexts = document.querySelectorAll('.truncated-text');
+  truncatedTexts.forEach(function(element) {
+    if (element.textContent.length < minLetters) {
+      // If the text is shorter than the minimum, remove ellipsis
+      element.classList.remove('truncated-text');
+    }
+  });
+});
