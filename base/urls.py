@@ -23,4 +23,8 @@ urlpatterns = [
     
     # update user url
     path('update-user/', views.update_user,name="update-user"),
+    
+   
+    path('topics-page/', views.topicsPage,name="topics"),
+    path('activity-page/', views.topicsPage,name="activity"),
 ]
